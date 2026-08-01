@@ -1,0 +1,259 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  updated?: string;
+  lang?: "en" | "zh-CN";
+  alternateHref: string;
+  alternateLabel: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  updated,
+  lang = "en",
+  alternateHref,
+  alternateLabel,
+  canonicalPath,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={`${title} — Drift`}
+  description={description}
+  lang={lang}
+  canonicalPath={canonicalPath}
+>
+  <header class="site-header">
+    <a class="brand" href={lang === "zh-CN" ? "/zh-cn/drift/" : "/drift/"} aria-label="Drift home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Drift</span>
+    </a>
+    <nav aria-label={lang === "zh-CN" ? "语言" : "Language"}>
+      <a href={alternateHref} lang={lang === "zh-CN" ? "en" : "zh-CN"}>{alternateLabel}</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside aria-label={lang === "zh-CN" ? "页面信息" : "Page information"}>
+      <p class="eyebrow">{eyebrow}</p>
+      {updated && <p class="updated">{updated}</p>}
+    </aside>
+    <article>
+      <h1>{title}</h1>
+      <slot />
+    </article>
+  </main>
+
+  <footer>
+    <span>© {new Date().getFullYear()} Oaky AI</span>
+    <a href={lang === "zh-CN" ? "/zh-cn/drift/privacy/" : "/drift/privacy/"}>
+      {lang === "zh-CN" ? "隐私政策" : "Privacy"}
+    </a>
+    <a href={lang === "zh-CN" ? "/zh-cn/drift/support/" : "/drift/support/"}>
+      {lang === "zh-CN" ? "支持" : "Support"}
+    </a>
+  </footer>
+</BaseLayout>
+
+<style>
+  .site-header {
+    width: min(100%, var(--content-width));
+    min-height: 5.5rem;
+    margin: 0 auto;
+    padding: 0 var(--page-gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    width: 0.58rem;
+    height: 1.55rem;
+    background: var(--color-accent);
+    transform: skew(-8deg);
+  }
+
+  nav a {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  main {
+    width: min(100%, var(--content-width));
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 7rem) var(--page-gutter) 7rem;
+    display: grid;
+    grid-template-columns: minmax(9rem, 15rem) minmax(0, 44rem);
+    gap: clamp(2rem, 7vw, 8rem);
+    align-items: start;
+  }
+
+  aside {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .eyebrow,
+  .updated {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .eyebrow {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .updated {
+    margin-top: 0.65rem;
+    color: var(--color-dim);
+  }
+
+  article :global(h1) {
+    max-width: 14ch;
+    margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2.65rem, 7vw, 5.75rem);
+    line-height: 0.98;
+    font-weight: 720;
+    letter-spacing: 0;
+  }
+
+  article :global(h2) {
+    margin: 3.5rem 0 0.8rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-line);
+    font-size: clamp(1.18rem, 2vw, 1.45rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  article :global(h3) {
+    margin: 2rem 0 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  article :global(p),
+  article :global(li) {
+    color: var(--color-muted);
+  }
+
+  article :global(p) {
+    margin: 0.75rem 0;
+  }
+
+  article :global(ul),
+  article :global(ol) {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+  }
+
+  article :global(li + li) {
+    margin-top: 0.55rem;
+  }
+
+  article :global(strong) {
+    color: var(--color-text);
+    font-weight: 650;
+  }
+
+  article :global(.lead) {
+    margin-bottom: 3.5rem;
+    color: var(--color-text);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    line-height: 1.55;
+  }
+
+  article :global(.contact-link) {
+    display: inline-block;
+    margin-top: 0.4rem;
+    color: var(--color-text);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 650;
+  }
+
+  article :global(details) {
+    border-top: 1px solid var(--color-line);
+  }
+
+  article :global(details:last-of-type) {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  article :global(summary) {
+    padding: 1.2rem 2rem 1.2rem 0;
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  article :global(details p),
+  article :global(details ol),
+  article :global(details ul) {
+    margin-top: 0;
+    padding-bottom: 1.2rem;
+  }
+
+  footer {
+    width: min(100%, var(--content-width));
+    min-height: 7rem;
+    margin: 0 auto;
+    padding: 2rem var(--page-gutter);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    color: var(--color-dim);
+    font-size: 0.82rem;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    main {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding-top: 3rem;
+    }
+
+    aside {
+      position: static;
+    }
+
+    article :global(h1) {
+      margin-bottom: 2.5rem;
+    }
+
+    footer {
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    footer span {
+      width: 100%;
+    }
+  }
+</style>

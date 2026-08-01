@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: "en" | "zh-CN";
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  lang = "en",
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#090a09" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

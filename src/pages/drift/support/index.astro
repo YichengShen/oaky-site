@@ -1,0 +1,84 @@
+---
+import { siteConfig } from "../../../config";
+import InformationLayout from "../../../layouts/InformationLayout.astro";
+---
+
+<InformationLayout
+  title="Support"
+  description="Requirements, troubleshooting, and contact information for Drift."
+  eyebrow="Drift for iOS"
+  alternateHref="/zh-cn/drift/support/"
+  alternateLabel="简体中文"
+  canonicalPath="/drift/support/"
+>
+  <p class="lead">
+    Drift is a visual player for Apple Music. It requires Apple Music authorization and an active subscription that supports full catalog playback.
+  </p>
+
+  <h2>Before you begin</h2>
+  <ul>
+    <li>Sign in to your Apple Account on the device.</li>
+    <li>Confirm that your Apple Music subscription is active.</li>
+    <li>Allow Drift to access Apple Music when prompted.</li>
+    <li>Use an internet connection to load Browse content and music that is not downloaded.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <details>
+    <summary>Drift says Apple Music is not connected</summary>
+    <ol>
+      <li>Open Drift's Settings and select Apple Music.</li>
+      <li>Authorize access when prompted.</li>
+      <li>In iOS Settings, confirm that Media & Apple Music access is enabled for Drift.</li>
+      <li>Return to Drift. The app will automatically check access again.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>My library or Browse content does not load</summary>
+    <ol>
+      <li>Confirm that the device is online.</li>
+      <li>Confirm that Apple Music works in Apple's Music app.</li>
+      <li>Return to Drift and allow the current update to finish.</li>
+      <li>If the status shows a recoverable problem, use the refresh control once.</li>
+    </ol>
+    <p>Browse requires an internet connection. Previously cached Library content may remain visible while Drift reconnects.</p>
+  </details>
+
+  <details>
+    <summary>A song does not play</summary>
+    <ol>
+      <li>Check the connection status shown at the top of Drift.</li>
+      <li>Confirm that your subscription is active and that the song is available in your current Apple Music region.</li>
+      <li>If the track is explicit, check the device's Screen Time content restrictions.</li>
+      <li>Try the same song in Apple's Music app to confirm its availability.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Artwork is missing or slow to appear</summary>
+    <p>
+      Drift shows a generated fallback while artwork downloads. Artwork availability and loading speed depend on Apple Music and the network connection. You can clear artwork and metadata from Drift's Storage settings if the cache needs to be rebuilt.
+    </p>
+  </details>
+
+  <details>
+    <summary>The moving wall causes discomfort</summary>
+    <p>
+      Open Drift's Settings to reduce the wall speed. Drift also responds to the Reduce Motion preference in iOS Accessibility settings.
+    </p>
+  </details>
+
+  <h2>Contact support</h2>
+  <p>
+    If the issue continues, email us with your device model, iOS version, Drift version, country or region, and the steps that led to the issue. Tell us whether it happens every time. Screenshots or a short screen recording are helpful. Never include your Apple Account password or payment information.
+  </p>
+  <a
+    class="contact-link"
+    href={`mailto:${siteConfig.supportEmail}?subject=Drift%20Support`}
+  >{siteConfig.supportEmail}</a>
+
+  <h2>Privacy</h2>
+  <p>Learn how Drift handles Apple Music access and locally cached information.</p>
+  <p><a href="/drift/privacy/">Read Drift's Privacy Policy</a></p>
+</InformationLayout>

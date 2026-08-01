@@ -1,0 +1,83 @@
+---
+import { siteConfig } from "../../../../config";
+import InformationLayout from "../../../../layouts/InformationLayout.astro";
+---
+
+<InformationLayout
+  title="支持"
+  description="查看 Drift 的使用条件、故障排查方法和联系方式。"
+  eyebrow="Drift iOS 版"
+  lang="zh-CN"
+  alternateHref="/drift/support/"
+  alternateLabel="English"
+  canonicalPath="/zh-cn/drift/support/"
+>
+  <p class="lead">
+    Drift 是一款 Apple Music 可视化播放器，需要获得 Apple Music 授权，并需要支持完整曲库播放的有效订阅。
+  </p>
+
+  <h2>开始之前</h2>
+  <ul>
+    <li>确认设备已登录你的 Apple 账户。</li>
+    <li>确认 Apple Music 订阅处于有效状态。</li>
+    <li>在 Drift 请求时允许其访问 Apple Music。</li>
+    <li>加载“浏览”内容和未下载的音乐时，请保持网络连接。</li>
+  </ul>
+
+  <h2>故障排查</h2>
+  <details>
+    <summary>Drift 提示 Apple Music 未连接</summary>
+    <ol>
+      <li>打开 Drift 的“设置”，选择“Apple Music”。</li>
+      <li>按照提示完成授权。</li>
+      <li>在 iOS“设置”中确认已允许 Drift 访问“媒体与 Apple Music”。</li>
+      <li>返回 Drift，应用会自动重新检查访问状态。</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>音乐资料库或“浏览”内容无法加载</summary>
+    <ol>
+      <li>确认设备已连接网络。</li>
+      <li>确认 Apple 自带的“音乐”应用可以正常使用 Apple Music。</li>
+      <li>返回 Drift，等待当前更新完成。</li>
+      <li>如果状态提示问题可以恢复，请使用一次刷新按钮。</li>
+    </ol>
+    <p>“浏览”需要网络连接。Drift 重新连接时，此前缓存的资料库内容可能仍然可见。</p>
+  </details>
+
+  <details>
+    <summary>歌曲无法播放</summary>
+    <ol>
+      <li>查看 Drift 顶部显示的连接状态。</li>
+      <li>确认订阅有效，并确认该歌曲在你当前的 Apple Music 国家或地区可用。</li>
+      <li>如果歌曲含有明确内容，请检查设备的“屏幕使用时间”内容限制。</li>
+      <li>在 Apple 自带的“音乐”应用中尝试播放同一首歌，以确认其可用性。</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>封面缺失或加载缓慢</summary>
+    <p>
+      封面下载期间，Drift 会显示生成的占位封面。封面是否可用以及加载速度取决于 Apple Music 和网络连接。如需重建缓存，你可以在 Drift 的“储存空间”设置中清除封面和元数据缓存。
+    </p>
+  </details>
+
+  <details>
+    <summary>流动的音乐墙让我感到不适</summary>
+    <p>你可以在 Drift 的“设置”中降低音乐墙速度。Drift 也会响应 iOS“辅助功能”中的“减弱动态效果”设置。</p>
+  </details>
+
+  <h2>联系支持</h2>
+  <p>
+    如果问题仍然存在，请在邮件中提供你的设备型号、iOS 版本、Drift 版本、国家或地区，以及导致问题出现的具体操作步骤。也请说明问题是否每次都会发生。截图或简短的录屏通常会有帮助。请勿提供 Apple 账户密码或支付信息。
+  </p>
+  <a
+    class="contact-link"
+    href={`mailto:${siteConfig.supportEmail}?subject=Drift%20支持`}
+  >{siteConfig.supportEmail}</a>
+
+  <h2>隐私</h2>
+  <p>了解 Drift 如何处理 Apple Music 访问和设备本地缓存信息。</p>
+  <p><a href="/zh-cn/drift/privacy/">查看 Drift 隐私政策</a></p>
+</InformationLayout>

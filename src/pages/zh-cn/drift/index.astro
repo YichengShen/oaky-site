@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Drift — 可视化音乐播放器"
+  description="让你的 Apple Music 流动起来。"
+  lang="zh-CN"
+  canonicalPath="/zh-cn/drift/"
+>
+  <main>
+    <header>
+      <a href="/" aria-label="Oaky AI 首页">Oaky AI</a>
+      <a href="/drift/" lang="en">English</a>
+    </header>
+    <section>
+      <p>可视化音乐播放器</p>
+      <h1>Drift</h1>
+      <h2>让你的音乐流动起来。</h2>
+    </section>
+    <footer>
+      <a href="/zh-cn/drift/privacy/">隐私政策</a>
+      <a href="/zh-cn/drift/support/">支持</a>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    min-height: 100svh;
+    padding: var(--page-gutter);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  header,
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  header a,
+  footer a {
+    color: var(--color-muted);
+    text-decoration: none;
+  }
+
+  section {
+    align-self: center;
+  }
+
+  section p {
+    margin: 0 0 1rem;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(6rem, 25vw, 22rem);
+    line-height: 0.75;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    margin: clamp(2.5rem, 7vw, 6rem) 0 0;
+    color: var(--color-muted);
+    font-size: clamp(1.4rem, 3vw, 2.5rem);
+    font-weight: 450;
+    letter-spacing: 0;
+  }
+
+  footer {
+    justify-content: flex-start;
+  }
+</style>
