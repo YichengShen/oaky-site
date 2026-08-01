@@ -34,6 +34,7 @@ import { products } from "../data/products";
               width="768"
               height="768"
               loading="eager"
+              fetchpriority={index === 0 ? "high" : "low"}
               decoding="async"
             />
           ))}

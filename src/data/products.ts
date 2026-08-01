@@ -15,7 +15,7 @@ export const products: Product[] = [
     description:
       "Premium instrumental playlists shaped for quiet focus, unhurried rest, and the rhythm of everyday life.",
     href: "https://rezo.oaky.ltd/",
-    image: "/assets/products/rezo-music.jpg",
+    image: "/assets/products/rezo-music.webp",
     tone: "warm",
     external: true,
   },
@@ -25,7 +25,7 @@ export const products: Product[] = [
     description:
       "An alternative Apple Music experience that turns the music you love into a living, flowing wall of artwork.",
     href: "/drift/",
-    image: "/assets/products/drift.jpg",
+    image: "/assets/products/drift.webp",
     tone: "dark",
     external: false,
   },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     description:
       "A considered place to keep coupons, gift cards, and vouchers visible before their value quietly disappears.",
     href: "https://validtill.oaky.ltd/",
-    image: "/assets/products/validtill.jpg",
+    image: "/assets/products/validtill.webp",
     tone: "stone",
     external: true,
   },
